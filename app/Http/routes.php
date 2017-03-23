@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/adminloginWelcome', function () {
+    return view('adminloginWelcome');
+});
+
+Route::get('/userloginWelcome', function () {
+    return view('userloginWelcome');
+});
 
 //Route::auth();
 
@@ -58,7 +65,7 @@ Route::post('createuser', function(Request $request) {
    $user->admin = $bool;
    //echo $user;
    $user->save();
-   return view('welcome');
+   return view('adminloginWelcome');
 })->middleware('admin');
 
 

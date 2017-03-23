@@ -69,4 +69,12 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    protected function authenticated($request, $user)
+    {
+        if($user->admin) {
+            return redirect()->intended('adminloginWelcome');
+        }
+        return redirect()->intended('userloginWelcome');
+    }
 }
